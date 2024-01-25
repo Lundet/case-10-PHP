@@ -8,6 +8,8 @@ include_once("_includes/global-functions.php");
 
 
 setup_user($pdo);
+setup_page($pdo);
+createImageTable($pdo);
 ?>
 
 <html lang="en">
@@ -16,6 +18,7 @@ setup_user($pdo);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
     <title>Register</title>
 </head>
 

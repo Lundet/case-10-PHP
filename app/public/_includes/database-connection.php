@@ -25,15 +25,41 @@ try {
 
 
 // funktion för att skapa tabellen user
-function setup_user($pdo)
-{
+function setup_user($pdo) {
     $sql = "CREATE TABLE IF NOT EXISTS `user` (
-        `user_id` int(11) NOT NULL AUTO_INCREMENT,
-        `username` varchar(20) NOT NULL,
-        `password` varchar(255) NOT NULL,
-        PRIMARY KEY (`user_id`)
-       ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
-
-       $pdo->exec($sql);
+        `id` INT AUTO_INCREMENT,
+        `username` VARCHAR(255) NOT NULL,
+        `password` VARCHAR(255) NOT NULL, -- Note: This should be hashed
+        PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
+    $pdo->exec($sql);
 }
+
+function setup_page($pdo) {
+    $sql = "CREATE TABLE IF NOT EXISTS `page` (
+        `id` INT AUTO_INCREMENT,
+        `title` VARCHAR(255) NOT NULL,
+        `content` TEXT,
+        `date_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        `user_id` INT,
+        PRIMARY KEY (`id`),
+        FOREIGN KEY (`user_id`) REFERENCES `user`(`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
+    $pdo->exec($sql);
+}
+
+
+function createImageTable($pdo) {
+    $sql = "CREATE TABLE IF NOT EXISTS `image` (
+        `id` INT AUTO_INCREMENT,
+        `url` VARCHAR(255) NOT NULL,
+        `page_id` INT,
+        PRIMARY KEY (`id`),
+        FOREIGN KEY (`page_id`) REFERENCES `page`(`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
+    $pdo->exec($sql);
+}
+
+
+
 ?>
