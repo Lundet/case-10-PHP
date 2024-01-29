@@ -17,7 +17,9 @@ createImageTable($pdo);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title; ?></title>
+    <title>
+        <?php echo $title; ?>
+    </title>
     <link rel="stylesheet" href="output.css">
 </head>
 
@@ -32,6 +34,9 @@ createImageTable($pdo);
             This is a simple example of a PHP page with basic Tailwind CSS styling.
         </p>
     </div>
+    <aside class="aside w-1/4">
+        <?php include "_includes/all-pages.php"; ?>
+    </aside>
 
     <?php include "_includes/footer.php"; ?>
 
