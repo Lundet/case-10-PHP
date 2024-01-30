@@ -72,30 +72,29 @@ function uploadImage($file)
 
     <?php include "_includes/header.php"; ?>
 
-    <div class="container mx-auto flex flex-wrap">
-        <div class="main-content  w-1/4">
+    <div class="container mx-auto flex">
+        <div class="main-content w-3/4">
 
             <h1 class="text-3xl font-bold mb-4">Add a New Page</h1>
 
             <form action="add-page.php" method="post" enctype="multipart/form-data">
                 <div class="mb-4">
                     <label for="title" class="block text-gray-700 font-bold mb-2">Title:</label>
-                    <input type="text" id="title" name="title" class="border rounded-md px-4 py-2 w-full" required>
+                    <input type="text" id="title" name="title" class="border rounded-md px-4 py-2 w-3/4" required>
                 </div>
                 <div class="mb-4">
                     <label for="content" class="block text-gray-700 font-bold mb-2">Content:</label>
-                    <textarea id="content" name="content" class="border rounded-md px-4 py-2 w-full" rows="6"
-                        required></textarea>
+                    <textarea id="content" name="content" class="border rounded-md px-4 py-2 w-3/4"
+                        rows="6"></textarea>
                 </div>
                 <div class="mb-4">
                     <label for="image" class="block text-gray-700 font-bold mb-2">Image:</label>
-                    <input type="file" id="image" name="image" class="border rounded-md px-4 py-2" accept="image/*"
-                        required>
+                    <input type="file" id="image" name="image" class="border rounded-md px-4 py-2" accept="image/*">
                 </div>
                 <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-full">Add Page</button>
             </form>
         </div>
-        <?php include "_includes/all-pages.php"; ?>
+        <?php include "_includes/all-pages-nav.php"; ?>
     </div>
 
     <?php include "_includes/footer.php"; ?>

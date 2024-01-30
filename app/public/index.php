@@ -26,18 +26,16 @@ createImageTable($pdo);
 <body class="font-sans">
 
     <?php include "_includes/header.php"; ?>
+    <div class="container mx-auto flex">
+        <div class="main-content w-3/4">
+            <h1 class="text-3xl font-bold ">Hello world</h1>
 
-    <div class="container">
-        <h1 class="text-3xl font-bold ">Hello world</h1>
-
-        <p>
-            This is a simple example of a PHP page with basic Tailwind CSS styling.
-        </p>
+            <p>
+                This is a simple example of a PHP page with basic Tailwind CSS styling.
+            </p>
+        </div>
+        <?php include "_includes/all-pages-nav.php"; ?>
     </div>
-    <aside class="aside w-1/4">
-        <?php include "_includes/all-pages.php"; ?>
-    </aside>
-
     <?php include "_includes/footer.php"; ?>
 
 </body>
