@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Include database connection and setup functions if needed
 include_once("_includes/database-connection.php");
 include_once("_includes/global-functions.php");
@@ -62,8 +63,6 @@ $creator_username = $page['username'];
             <p>Creator:
                 <?php echo $creator_username; ?>
             </p>
-            <!-- Link back to the main page -->
-            <a href="index.php" class="text-blue-500 hover:underline">Back to Main Page</a>
         </div>
         <?php include "_includes/all-pages-nav.php"; ?>
     </div>

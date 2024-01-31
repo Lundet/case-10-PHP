@@ -28,16 +28,22 @@ createImageTable($pdo);
     include "_includes/header.php";
     ?>
 
-    <h1>Register</h1>
-    <form action="" method="post">
-        <label for="username">Username: </label>
-        <input type="text" name="username" id="username">
-
-        <label for="password">Password: </label>
-        <input type="password" name="password" id="password">
-
-        <button type="submit">Register</button>
+<div class="flex justify-center items-center h-screen bg-gray-100">
+    <form action="" method="post" class="max-w-md mx-auto bg-white p-12 rounded-lg shadow-md mb-16">
+        <h1 class="text-5xl font-bold mb-8 text-center">Register</h1>
+        <div class="mb-6">
+            <label for="username" class="block text-gray-700 font-semibold mb-2">Username:</label>
+            <input type="text" name="username" id="username" class="w-full border border-gray-300 rounded-md py-4 px-5 text-xl focus:outline-none focus:border-blue-500" required>
+        </div>
+        <div class="mb-6">
+            <label for="password" class="block text-gray-700 font-semibold mb-2">Password:</label>
+            <input type="password" name="password" id="password" class="w-full border border-gray-300 rounded-md py-4 px-5 text-xl focus:outline-none focus:border-blue-500" required>
+        </div>
+        <button type="submit" class="bg-blue-500 text-white font-semibold py-4 px-8 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 w-full">Register</button>
     </form>
+</div>
+
+
 
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

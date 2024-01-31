@@ -1,4 +1,4 @@
-<aside class="bg-gray-500 text-gray-800 p-4 w-1/4 ">
+<aside class="bg-indigo-600 text-white p-4 w-1/4 rounded-md shadow-md">
     <h2 class="text-4xl font-bold mb-4">All Page Titles</h2>
     <nav>
         <ul>
@@ -12,9 +12,9 @@
 
             // Generate navigation links for each page along with creator username
             foreach ($pages as $page) {
-                echo "<li><a href='page.php?id={$page['id']}' class='block py-2 px-4 text-blue-700 hover:bg-blue-100 hover:text-blue-900 rounded-md'>";
+                echo "<li><a href='page.php?id={$page['id']}' class='block py-2 px-4 hover:bg-indigo-700 hover:text-white rounded-md'>";
                 echo "<span class='font-bold'>{$page['title']}</span>";
-                echo "<span class='text-sm'> - Creator: {$page['username']}</span></a></li>";
+                echo "<span class='text-sm text-gray-300'> - Creator: {$page['username']}</span></a></li>";
             }
             ?>
         </ul>
