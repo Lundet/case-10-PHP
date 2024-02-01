@@ -37,9 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             ':page_id' => $page_id
         ]);
 
-        // Redirect to a success page or show a success message
-        // header("Location: success.php");
-        // exit();
+         // Redirect to the newly added page
+         header("Location: page.php?id=$page_id");
+         exit();
+         
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }

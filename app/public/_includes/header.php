@@ -1,4 +1,4 @@
-<header class="mb-4 bg-blue-500 text-white py-6">
+<header class="mb-4 bg-blue-500 text-white py-6 ">
     <div class="container mx-auto flex justify-between items-center">
         <nav class="text-3xl flex-grow text-center">
             <a href="/" class="mx-2 hover:underline">Start</a> | 
@@ -15,6 +15,6 @@
                 <a href="add-page.php" class="mx-2 hover:underline">Add New Page</a> | 
             <?php endif; ?>
         </nav>
-        <span class="text-lg font-bold"><?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?></span>
+        <span class="text-4xl font-bold"><?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?></span>
     </div>
 </header>

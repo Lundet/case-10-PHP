@@ -8,7 +8,7 @@ include_once("_includes/global-functions.php");
 $page_id = $_GET['id'];
 
 // Fetch page details from the database
-$sql = "SELECT p.title, p.content, p.date_created, u.username
+$sql = "SELECT p.id, p.title, p.content, p.date_created, p.user_id, u.username
         FROM page p
         JOIN user u ON p.user_id = u.id
         WHERE p.id = :page_id";
@@ -28,7 +28,10 @@ $title = $page['title'];
 $content = $page['content'];
 $date_created = $page['date_created'];
 $creator_username = $page['username'];
+$user_id = $page['user_id'];
 
+// Check if the logged-in user is the creator of the page
+$is_owner = isset($_SESSION['user_id']) && $_SESSION['user_id'] == $user_id;
 ?>
 
 
@@ -38,7 +41,9 @@ $creator_username = $page['username'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        <?php echo $title; ?>
+    </title>
     <link href="output.css" rel="stylesheet">
 </head>
 
@@ -50,7 +55,7 @@ $creator_username = $page['username'];
     ?>
 
     <div class="container mx-auto flex">
-        <div class="main-content w-3/4">
+        <div class="main-content w-3/4 flex flex-col mt-12 items-center">
             <h1 class="text-3xl font-bold mb-4">
                 <?php echo $title; ?>
             </h1>
@@ -63,10 +68,19 @@ $creator_username = $page['username'];
             <p>Creator:
                 <?php echo $creator_username; ?>
             </p>
+            <?php if ($is_owner): ?>
+                <div class="mt-4">
+                    <a href="edit-page.php?id=<?php echo $page_id; ?>"
+                        class="bg-blue-500 text-white font-bold py-2 px-4 rounded-full">Edit Page</a>
+                    <a href="remove-page.php?id=<?php echo $page_id; ?>"
+                        class="bg-red-500 text-white font-bold py-2 px-4 rounded-full">Delete Page</a>
+                </div>
+            <?php endif; ?>
         </div>
+
         <?php include "_includes/all-pages-nav.php"; ?>
     </div>
-    
+
 
     <?php
     // Include footer

@@ -1,4 +1,4 @@
-<aside class="bg-indigo-600 text-white p-4 w-1/4 rounded-md shadow-md">
+<aside class="bg-indigo-600 text-white p-4 w-1/4 rounded-md shadow-md overflow-y-auto mt-16" style="height: 40rem;">
     <h2 class="text-4xl font-bold mb-4">All Page Titles</h2>
     <nav>
         <ul>

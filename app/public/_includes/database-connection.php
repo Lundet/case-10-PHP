@@ -29,7 +29,7 @@ function setup_user($pdo) {
     $sql = "CREATE TABLE IF NOT EXISTS `user` (
         `id` INT AUTO_INCREMENT,
         `username` VARCHAR(255) NOT NULL,
-        `password` VARCHAR(255) NOT NULL, -- Note: This should be hashed
+        `password` VARCHAR(255) NOT NULL, 
         PRIMARY KEY (`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
     $pdo->exec($sql);
@@ -55,10 +55,11 @@ function createImageTable($pdo) {
         `url` VARCHAR(255) NOT NULL,
         `page_id` INT,
         PRIMARY KEY (`id`),
-        FOREIGN KEY (`page_id`) REFERENCES `page`(`id`)
+        FOREIGN KEY (`page_id`) REFERENCES `page`(`id`) ON DELETE CASCADE
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
     $pdo->exec($sql);
 }
+
 
 
 
