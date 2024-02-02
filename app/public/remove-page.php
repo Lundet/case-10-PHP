@@ -42,9 +42,9 @@ if ($_SESSION['user_id'] != $page['user_id']) {
 // If the user confirms the deletion, proceed with deleting the page
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['confirm_delete'])) {
     //delete image
-    $sql_delete_images = "DELETE FROM image WHERE page_id = :page_id";
-    $stmt_delete_images = $pdo->prepare($sql_delete_images);
-    $stmt_delete_images->execute([':page_id' => $page_id]);
+    // $sql_delete_images = "DELETE FROM image WHERE page_id = :page_id";
+    // $stmt_delete_images = $pdo->prepare($sql_delete_images);
+    // $stmt_delete_images->execute([':page_id' => $page_id]);
    
    
     // Delete the page

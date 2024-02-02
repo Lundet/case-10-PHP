@@ -8,9 +8,10 @@ include_once("_includes/global-functions.php");
 $page_id = $_GET['id'];
 
 // Fetch page details from the database
-$sql = "SELECT p.id, p.title, p.content, p.date_created, p.user_id, u.username
+$sql = "SELECT p.id, p.title, p.content, p.date_created, p.user_id, u.username, i.url as image_url
         FROM page p
         JOIN user u ON p.user_id = u.id
+        LEFT JOIN image i ON p.id = i.page_id
         WHERE p.id = :page_id";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([':page_id' => $page_id]);
@@ -29,6 +30,7 @@ $content = $page['content'];
 $date_created = $page['date_created'];
 $creator_username = $page['username'];
 $user_id = $page['user_id'];
+$image_url = $page['image_url'];
 
 // Check if the logged-in user is the creator of the page
 $is_owner = isset($_SESSION['user_id']) && $_SESSION['user_id'] == $user_id;
@@ -59,9 +61,14 @@ $is_owner = isset($_SESSION['user_id']) && $_SESSION['user_id'] == $user_id;
             <h1 class="text-3xl font-bold mb-4">
                 <?php echo $title; ?>
             </h1>
+            
             <p>Content:
                 <?php echo $content; ?>
             </p>
+            <?php if ($image_url): ?>
+                <img src="<?php echo $image_url; ?>" alt="Page Image" class=" h-40 w-40">
+            <?php endif; ?>
+
             <p>Date Created:
                 <?php echo $date_created; ?>
             </p>

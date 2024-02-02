@@ -6,55 +6,6 @@ $title = "Add Page";
 include_once("_includes/database-connection.php");
 include_once("_includes/global-functions.php");
 
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Process form data
-    $title = $_POST["title"];
-    $content = $_POST["content"];
-
-    // Upload image file and get its URL
-    $image_url = uploadImage($_FILES["image"]); // Implement the uploadImage function
-
-    // Save data to database
-    try {
-        // Insert page data
-        $sql_page = "INSERT INTO `page` (`title`, `content`, `user_id`) VALUES (:title, :content, :user_id)";
-        $stmt_page = $pdo->prepare($sql_page);
-        $stmt_page->execute([
-            ':title' => $title,
-            ':content' => $content,
-            ':user_id' => $_SESSION['user_id'] // Assuming you have a logged-in user
-        ]);
-
-        // Get the ID of the inserted page
-        $page_id = $pdo->lastInsertId();
-
-        // Insert image data
-        $sql_image = "INSERT INTO `image` (`url`, `page_id`) VALUES (:url, :page_id)";
-        $stmt_image = $pdo->prepare($sql_image);
-        $stmt_image->execute([
-            ':url' => $image_url,
-            ':page_id' => $page_id
-        ]);
-
-         // Redirect to the newly added page
-         header("Location: page.php?id=$page_id");
-         exit();
-         
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-    }
-}
-
-// Function to upload image and return its URL
-function uploadImage($file)
-{
-    // Implement your image upload logic here
-    // Example: move_uploaded_file(), generate unique filename, save to server, return URL
-    // Ensure proper security measures for file uploads
-    // For demonstration purposes, you can simply return a placeholder URL
-    return "path/to/uploaded/image.jpg";
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +29,7 @@ function uploadImage($file)
 
             <h1 class="text-3xl font-bold mb-4">Add a New Page</h1>
 
-            <form action="add-page.php" method="post" enctype="multipart/form-data">
+            <form action="handle-upload.php" method="post" enctype="multipart/form-data">
                 <div class="mb-4">
                     <label for="title" class="block text-gray-700 font-bold mb-2">Title:</label>
                     <input type="text" id="title" name="title" class="border rounded-md px-4 py-2 w-3/4" required>

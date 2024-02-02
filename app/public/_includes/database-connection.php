@@ -43,7 +43,7 @@ function setup_page($pdo) {
         `date_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         `user_id` INT,
         PRIMARY KEY (`id`),
-        FOREIGN KEY (`user_id`) REFERENCES `user`(`id`)
+        FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON DELETE NO ACTION
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
     $pdo->exec($sql);
 }
@@ -59,6 +59,7 @@ function createImageTable($pdo) {
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
     $pdo->exec($sql);
 }
+
 
 
 
