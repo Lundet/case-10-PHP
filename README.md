@@ -81,8 +81,6 @@ class Database
 }
 ```
 
-Create a new class | model - and let this inherit class Database.
 
-File `_models/Language.php`
 
 

@@ -61,13 +61,14 @@ $is_owner = isset($_SESSION['user_id']) && $_SESSION['user_id'] == $user_id;
             <h1 class="text-3xl font-bold mb-4">
                 <?php echo $title; ?>
             </h1>
-            
+
             <p>Content:
                 <?php echo $content; ?>
             </p>
             <?php if ($image_url): ?>
-                <img src="<?php echo $image_url; ?>" alt="Page Image" class=" h-40 w-40">
+                <img src="<?php echo $image_url; ?>" alt="Page Image" class="h-40 w-40">
             <?php endif; ?>
+
 
             <p>Date Created:
                 <?php echo $date_created; ?>
