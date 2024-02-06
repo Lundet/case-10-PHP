@@ -78,7 +78,7 @@ createImageTable($pdo);
             $_SESSION['user_id'] = $user['id']; // Store user ID
     
             // Redirect to start page
-            header("location: add-page.php");
+            header("location: index.php");
         } catch (PDOException $err) {
             echo "There was a problem: " . $err->getMessage();
         }
