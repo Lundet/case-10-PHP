@@ -8,6 +8,7 @@ include_once("_includes/global-functions.php");
 setup_user($pdo);
 setup_page($pdo);
 createImageTable($pdo);
+createProfilePictureTable($pdo);
 ?>
 
 <html lang="en">

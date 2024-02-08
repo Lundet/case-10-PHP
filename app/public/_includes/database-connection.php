@@ -60,6 +60,16 @@ function createImageTable($pdo) {
     $pdo->exec($sql);
 }
 
+function createProfilePictureTable($pdo) {
+    $sql = "CREATE TABLE IF NOT EXISTS `profile_picture` (
+        `id` INT AUTO_INCREMENT,
+        `user_id` INT,
+        `url` VARCHAR(255) NOT NULL,
+        PRIMARY KEY (`id`),
+        FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON DELETE CASCADE
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
+    $pdo->exec($sql);
+}
 
 
 
