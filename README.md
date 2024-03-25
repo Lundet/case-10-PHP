@@ -1,86 +1,22 @@
-# Modul10-PHP
+# Case-10 PHP App
 
 
----
+## Prerequisites
 
-Branch *1-code-from-module6*
+Before you begin, ensure you have the following installed on your system:
 
-## Models
+- Docker
+- Git
 
+## Getting Started
 
-Create class Database - first step
+To get started with the Case-10 PHP app, follow these steps:
 
-File `_models/Database.php`
+1. clone down the repo https://github.com/Lundet/case-10-PHP.git
 
-```php
-class Database
-{
-    public function __construct()
-    {
+2. Open terminal and run docker-compose up
 
-        // credentials
-        $servername = "mysql";
-        $database = "db_lecture";
-        $username = "db_user";
-        $password = "db_password";
-
-        // data source name
-        $dsn = "mysql:host=$servername;dbname=$database";
-
-        try {
-
-            // connect to database
-            $pdo = new PDO($dsn, $username, $password);
-
-            // set the PDO error mode to exception
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-            echo "Connected successfully";
-        } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
-        }
-    }
-}
-```
-
-In order to use this Database class so other models can inherit - add public variable $db. Edit Database.php:
-
-```php
-class Database
-{
-
-    public $db;
-
-    public function __construct()
-    {
-
-        // credentials
-        $servername = "mysql";
-        $database = "db_lecture";
-        $username = "db_user";
-        $password = "db_password";
-
-        // data source name
-        $dsn = "mysql:host=$servername;dbname=$database";
-
-        try {
-
-            // connect to database
-            $this->db = new PDO($dsn, $username, $password);
-
-            // set the PDO error mode to exception
-            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-            // echo "Connected successfully";
-        } catch (PDOException $e) {
-            // ett fel som visar 'hemligheter' loggas till en fil för att inte visa för mycket
-            // echo "Connection failed: " . $e->getMessage();
-            echo "Connection failed: ";
-        }
-    }
-}
-```
-
+3. Navigate to http://localhost:8024/index.php
 
 
 
