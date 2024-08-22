@@ -35,11 +35,14 @@ The Fullstack PHP Application is a project designed to allow users to create, ed
 
 ## Screenshots
 
-![image](https://github.com/user-attachments/assets/872cdedd-a669-43df-ada2-1eceed0543c6)
+![image](https://github.com/user-attachments/assets/c8de8f85-f12b-401b-819c-2f64987b45ee)
+![image](https://github.com/user-attachments/assets/8e371308-58b0-4e61-8015-75b9f0de39e8)
+![image](https://github.com/user-attachments/assets/4e2f8d60-bde8-4784-ae73-a36244b6897b)
+![image](https://github.com/user-attachments/assets/236a51a1-cc58-4349-a757-6ff9ecbc5ddf)
 
-![image](https://github.com/user-attachments/assets/8856ccb9-4f46-42f0-9473-c760927a1220)
 
-![image](https://github.com/user-attachments/assets/a8cbe5e3-2f6f-4604-a74f-ee2012ef0df2)
+
+
 
 
 
